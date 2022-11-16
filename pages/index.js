@@ -4,6 +4,8 @@ import { startFilterEstuches } from "../redux/estuchesSlice";
 import { useEffect } from "react";
 import { bucket } from "./api/cosmic-api";
 import { Hearts } from "react-loader-spinner";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
 
 export async function getServerSideProps() {
   const data = await bucket.objects
@@ -22,6 +24,12 @@ export async function getServerSideProps() {
 
 export default function Home({ modelos }) {
   //console.log(modelos);
+
+  const linkTest =
+    "https://api.whatsapp.com/send?phone=593939481770&text=Hola.%20Quisiera%20adquirir%20el%20estuche%20de%20margaritas,%20por%20favor";
+  
+  const whatsApp = "https://api.whatsapp.com/send?phone=593939481770";
+  const textbase = "text=Hola.%20Quisiera%20adquirir%20el%20";
 
   // Redux
   const dispatch = useDispatch();
@@ -113,6 +121,13 @@ export default function Home({ modelos }) {
                   <p className="card-text">
                     Precio: {estuche.metadata.precio}.
                   </p>
+                  <a
+                    className="btn btn-success"
+                    href={`${whatsApp}&${textbase}${estuche.title}%20para%20${title},%20por%20favor`}
+                    target="_blank"
+                  >
+                    <FontAwesomeIcon icon={faWhatsapp} />{" "}Pídelo por WhatsApp
+                  </a>
                 </div>
               </div>
             </div>
