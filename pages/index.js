@@ -25,11 +25,11 @@ export async function getServerSideProps() {
 export default function Home({ modelos }) {
   //console.log(modelos);
 
-  const linkTest =
-    "https://api.whatsapp.com/send?phone=593939481770&text=Hola.%20Quisiera%20adquirir%20el%20estuche%20de%20margaritas,%20por%20favor";
+  /* const linkTest =
+    "https://api.whatsapp.com/send?phone=593939481770&text=Hola.%20Quisiera%20adquirir%20el%20estuche%20de%20margaritas,%20por%20favor"; */
   
   const whatsApp = "https://api.whatsapp.com/send?phone=593939481770";
-  const textbase = "text=Hola.%20Quisiera%20adquirir%20el%20";
+  const textbase = "text=Me%20gustaría%20adquirir%20el%20";
 
   // Redux
   const dispatch = useDispatch();
