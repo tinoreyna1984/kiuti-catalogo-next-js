@@ -3,8 +3,8 @@ import Cosmic from "cosmicjs";
 const api = Cosmic();
 
 const bucket = api.bucket({
-  slug: "kiuti-cms-production",
-  read_key: "00AtyYqL4bhq2M1lTZ02lR7dcX5iKQeWXoxUdiZBCh2CnakN8d",
+  slug: process.env.NEXT_PUBLIC_COSMIC_BUCKET_SLUG,
+  read_key: process.env.NEXT_PUBLIC_COSMIC_BUCKET_READ_KEY,
 });
 
 export {api, bucket};
