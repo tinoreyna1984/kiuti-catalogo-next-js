@@ -20,11 +20,15 @@ export const estuchesSlice = createSlice({
       state.listaEstuches = estuche;
       //console.log(state)
     },
+    setLoadingState: (state, action) => {
+      state.loading = action.payload;
+    },
   },
 });
 
 export const startFilterEstuches = ({ slug, title }) => {
   return async (dispatch) => {
+    dispatch(setLoadingState(true));
     const data = await bucket.objects
       .find({
         type: "modelos",
@@ -34,7 +38,8 @@ export const startFilterEstuches = ({ slug, title }) => {
     const estuches = await data.objects;
 
     dispatch(getEstuches({ slug, title, estuches }));
+    dispatch(setLoadingState(false));
   };
 };
 
-export const { getEstuches } = estuchesSlice.actions;
+export const { getEstuches, setLoadingState } = estuchesSlice.actions;

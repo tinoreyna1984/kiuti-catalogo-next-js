@@ -1,8 +1,9 @@
 import Image from "next/image";
-import { api, bucket } from "./api/cosmic-api";
 import { useDispatch, useSelector } from "react-redux";
 import { startFilterEstuches } from "../redux/estuchesSlice";
 import { useEffect } from "react";
+import { bucket } from "./api/cosmic-api";
+import { Hearts } from "react-loader-spinner";
 
 export async function getServerSideProps() {
   const data = await bucket.objects
@@ -20,21 +21,21 @@ export async function getServerSideProps() {
 }
 
 export default function Home({ modelos }) {
-  console.log(modelos);
+  //console.log(modelos);
 
   // Redux
   const dispatch = useDispatch();
   const { slug, title, listaEstuches, loading } = useSelector(
     (state) => state.estuches
   );
-  //console.log(title);
+  //console.log(loading);
 
   useEffect(() => {
     dispatch(startFilterEstuches({ slug, title }));
   }, [slug]);
 
   const handleModelo = async ({ slug, title }) => {
-    console.log(title);
+    //console.log(title);
     dispatch(startFilterEstuches({ slug, title }));
   };
 
@@ -80,40 +81,60 @@ export default function Home({ modelos }) {
         )}
       </div>
       <div className="row row-cols-1 row-cols-md-3 g-4">
-        {/* <div className="col">
-          <div className="card h-100">
-            <img src="/kiuti-logo.jpg" className="card-img-top" alt="..." />
-            <div className="card-body">
-              <h5 className="card-title">Estuche</h5>
-              <p className="card-text">Precio: $11.99.</p>
-            </div>
-          </div>
-        </div> */}
-        {listaEstuches?.map((estuche) => (
-          <div key={estuche.id} className="col">
-            <div className="card h-100">
-              <img
-                src={estuche.metadata.image.url}
-                className="card-img-top"
-                alt="Estuche"
-              />
-              <div className="card-body">
-                <h5 className="card-title">{estuche.title}</h5>
-                <p className="card-text">Precio: {estuche.metadata.precio}.</p>
-              </div>
-            </div>
-          </div>
-        )) || (
+        {loading ? (
           <div className="col">
             <div className="card h-100 border-0">
               <div className="card-body">
-                <h5 className="card-title">Lo sentimos</h5>
-                <p className="lead">
-                  Lo sentimos, no tenemos estuches para {title}
-                </p>
+                <Hearts
+                  height="150"
+                  width="150"
+                  color="#f16c94"
+                  ariaLabel="hearts-loading"
+                  wrapperStyle={{}}
+                  wrapperClass="card-img-top h-150 w-150"
+                  visible={true}
+                />
               </div>
             </div>
           </div>
+        ) : (
+          listaEstuches?.map((estuche) => (
+            <div key={estuche.id} className="col">
+              <div className="card h-100">
+                <img
+                  src={estuche.metadata.image.url}
+                  className="card-img-top"
+                  alt="Estuche"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <div className="card-body">
+                  <h5 className="card-title">{estuche.title}</h5>
+                  <p className="card-text">
+                    Precio: {estuche.metadata.precio}.
+                  </p>
+                </div>
+              </div>
+            </div>
+          )) || (
+            <div className="col">
+              <div className="card h-100 border-0">
+                <img
+                  src="/sad-face.png"
+                  className="card-img-top h-75 w-50"
+                  alt="cara triste"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <div className="card-body">
+                  <h5 className="card-title">Lo sentimos</h5>
+                  <p className="lead">
+                    Lo sentimos, no tenemos estuches para {title}
+                  </p>
+                </div>
+              </div>
+            </div>
+          )
         )}
       </div>
     </div>
