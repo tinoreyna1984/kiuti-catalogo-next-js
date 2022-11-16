@@ -54,7 +54,7 @@ export default function Home({ modelos }) {
           Aquí tenemos los estuches más kiut para tu iPhone. 🥰
         </p>
         <p className="lead">
-          Haz clic en el botón de abajo para ver estuches para tu modelo.
+          Haz clic en el botón de abajo, desliza y haz clic para encontrar estuches para tu iPhone.
         </p>
       </div>
       <div className="row py-3">
@@ -142,9 +142,9 @@ export default function Home({ modelos }) {
                   decoding="async"
                 />
                 <div className="card-body">
-                  <h5 className="card-title">Lo sentimos</h5>
+                  <h5 className="card-title">Lo sentimos...</h5>
                   <p className="lead">
-                    Lo sentimos, no tenemos estuches para {title}
+                    No tenemos estuches para {title}
                   </p>
                 </div>
               </div>
