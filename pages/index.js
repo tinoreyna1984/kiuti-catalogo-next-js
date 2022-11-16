@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { useDispatch, useSelector } from "react-redux";
 import { startFilterEstuches } from "../redux/estuchesSlice";
 import { useEffect } from "react";
@@ -51,10 +50,10 @@ export default function Home({ modelos }) {
     <div className="container p-5">
       <div className="row pt-2">
         <p className="lead">
-          Aquí tenemos los estuches más kiut para tu iPhone. 🥰
+          Aquí encontrarás los estuches más kiut para tu iPhone. 🥰
         </p>
         <p className="lead">
-          Haz clic en el botón de abajo, desliza y haz clic para encontrar estuches para tu iPhone.
+          Elige tu modelo de iPhone y podrás ver todos los estuches que están disponibles. 🤗
         </p>
       </div>
       <div className="row py-3">

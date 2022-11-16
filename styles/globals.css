@@ -49,3 +49,13 @@ body::-webkit-scrollbar-thumb:hover {
   background: #790f0f;
   opacity: 0.6;
 }
+
+@font-face {
+  font-family: "Alex Brush";
+  src: url("../public/AlexBrush-Regular.ttf");
+}
+
+/* title */
+#title{
+  font: bolder 3em "Alex Brush", serif;
+}
