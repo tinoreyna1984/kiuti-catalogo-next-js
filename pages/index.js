@@ -26,7 +26,7 @@ export default function Home({ modelos }) {
 
   /* const linkTest =
     "https://api.whatsapp.com/send?phone=593939481770&text=Hola.%20Quisiera%20adquirir%20el%20estuche%20de%20margaritas,%20por%20favor"; */
-  
+
   const whatsApp = "https://api.whatsapp.com/send?phone=593939481770";
   const textbase = "text=Me%20gustaría%20adquirir%20el%20";
 
@@ -53,7 +53,8 @@ export default function Home({ modelos }) {
           Aquí encontrarás los estuches más kiut para tu iPhone. 🥰
         </p>
         <p className="lead">
-          Elige tu modelo de iPhone y podrás ver todos los estuches que están disponibles. 🤗
+          Elige tu modelo de iPhone y podrás ver todos los estuches que están
+          disponibles. 🤗
         </p>
       </div>
       <div className="row py-3">
@@ -80,12 +81,12 @@ export default function Home({ modelos }) {
         </div>
       </div>
       <div className="row py-3">
-        {!loading && (listaEstuches?.length && (
+        {!loading && listaEstuches?.length && (
           <p className="lead">
             Hay {listaEstuches?.length || 0}{" "}
             {listaEstuches?.length > 1 ? "estuches" : "estuche"} para {title}
           </p>
-        ))}
+        )}
       </div>
       <div className="row row-cols-1 row-cols-md-3 g-4">
         {loading ? (
@@ -125,7 +126,7 @@ export default function Home({ modelos }) {
                     href={`${whatsApp}&${textbase}${estuche.title}%20para%20${title},%20por%20favor`}
                     target="_blank"
                   >
-                    <FontAwesomeIcon icon={faWhatsapp} />{" "}Pídelo por WhatsApp
+                    <FontAwesomeIcon icon={faWhatsapp} /> Pídelo por WhatsApp
                   </a>
                 </div>
               </div>
@@ -142,14 +143,15 @@ export default function Home({ modelos }) {
                 />
                 <div className="card-body">
                   <h5 className="card-title">Lo sentimos...</h5>
-                  <p className="lead">
-                    No tenemos estuches para {title}
-                  </p>
+                  <p className="lead">No tenemos estuches para {title}</p>
                 </div>
               </div>
             </div>
           )
         )}
+      </div>
+      <div className="row py-4">
+        <p className="lead fw-bolder text-center">*Los colores que se muestran en las imágenes son los únicos disponibles*</p>
       </div>
     </div>
   );
