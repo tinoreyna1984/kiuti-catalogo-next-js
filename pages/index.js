@@ -80,12 +80,12 @@ export default function Home({ modelos }) {
         </div>
       </div>
       <div className="row py-3">
-        {listaEstuches?.length && (
+        {!loading && (listaEstuches?.length && (
           <p className="lead">
             Hay {listaEstuches?.length || 0}{" "}
             {listaEstuches?.length > 1 ? "estuches" : "estuche"} para {title}
           </p>
-        )}
+        ))}
       </div>
       <div className="row row-cols-1 row-cols-md-3 g-4">
         {loading ? (
