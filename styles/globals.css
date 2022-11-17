@@ -22,7 +22,7 @@ body::-webkit-scrollbar-thumb:hover {
 
 /* Dropdown */
 .dropdown-menu {
-  max-height: 24rem;
+  max-height: 22rem;
   overflow-x: hidden;
   overflow-y: auto;
 }

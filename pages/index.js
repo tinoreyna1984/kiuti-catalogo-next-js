@@ -47,8 +47,8 @@ export default function Home({ modelos }) {
   };
 
   return (
-    <div className="container p-5">
-      <div className="row pt-2">
+    <div className="container px-5 py-3">
+      <div className="row">
         <p className="lead">
           Aquí encontrarás los estuches más kiut para tu iPhone. 🥰
         </p>
@@ -93,12 +93,12 @@ export default function Home({ modelos }) {
             <div className="card h-100 border-0">
               <div className="card-body">
                 <Hearts
-                  height="150"
-                  width="150"
+                  height="282"
+                  width="282"
                   color="#f16c94"
                   ariaLabel="hearts-loading"
                   wrapperStyle={{}}
-                  wrapperClass="card-img-top h-150 w-150"
+                  wrapperClass="card-img-top h-100 w-100"
                   visible={true}
                 />
               </div>
