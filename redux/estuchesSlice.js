@@ -4,8 +4,8 @@ import { bucket } from "../pages/api/cosmic-api";
 export const estuchesSlice = createSlice({
   name: "estuches",
   initialState: {
-    slug: "iphone-11",
-    title: "iPhone 11",
+    slug: "iphone-13-pro-max",
+    title: "iPhone 13 Pro Max",
     listaEstuches: [],
     loading: false,
   },
