@@ -13,7 +13,7 @@ export async function getServerSideProps() {
     })
     .props("title,slug,metadata"); // response properties
 
-  const modelos = await data.objects.reverse();
+  const modelos = await data.objects;
   return {
     props: {
       modelos,
