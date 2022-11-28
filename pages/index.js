@@ -5,6 +5,7 @@ import { bucket } from "./api/cosmic-api";
 import { Hearts } from "react-loader-spinner";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
+import ScrollToTop from "../components/scroll-to-top";
 
 export async function getServerSideProps() {
   const data = await bucket.objects
@@ -152,6 +153,7 @@ export default function Home({ modelos }) {
       </div>
       <div className="row py-4">
         <p className="lead fw-bolder text-center">*Los colores que se muestran en las imágenes son los únicos disponibles*</p>
+        <ScrollToTop />
       </div>
     </div>
   );
