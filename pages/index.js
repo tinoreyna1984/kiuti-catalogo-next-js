@@ -82,10 +82,15 @@ export default function Home({ modelos }) {
         </div>
       </div>
       <div className="row py-3">
-        {!loading && listaEstuches?.length && (
+        {/* {!loading && listaEstuches?.length && (
           <p className="lead">
             Hay {listaEstuches?.length || 0}{" "}
             {listaEstuches?.length > 1 ? "estuches" : "estuche"} para {title}
+          </p>
+        )} */}
+        {!loading && listaEstuches?.length && (
+          <p className="lead fw-bolder text-center">
+            Estos son los estuches disponibles para {title}
           </p>
         )}
       </div>
@@ -152,7 +157,11 @@ export default function Home({ modelos }) {
         )}
       </div>
       <div className="row py-4">
-        <p className="lead fw-bolder text-center">*Los colores que se muestran en las imágenes son los únicos disponibles*</p>
+        {!loading && listaEstuches?.length && (
+          <p className="lead fw-bolder text-center">
+            *Los colores que se muestran en las imágenes son los únicos disponibles*
+          </p>
+        )}
         <ScrollToTop />
       </div>
     </div>
