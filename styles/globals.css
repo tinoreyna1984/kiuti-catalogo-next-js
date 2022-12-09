@@ -43,6 +43,10 @@ body::-webkit-scrollbar-thumb:hover {
   cursor: pointer;
 }
 
+#dropdown-button {
+  white-space: normal;
+}
+
 /* Handle */
 .dropdown-menu::-webkit-scrollbar-thumb {
   background: #bb214f;
