@@ -39,6 +39,10 @@ body::-webkit-scrollbar-thumb:hover {
   border-radius: 6px;
 }
 
+.dropdown-item:hover{
+  cursor: pointer;
+}
+
 /* Handle */
 .dropdown-menu::-webkit-scrollbar-thumb {
   background: #bb214f;

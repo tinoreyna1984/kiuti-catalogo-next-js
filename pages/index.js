@@ -25,9 +25,6 @@ export async function getServerSideProps() {
 export default function Home({ modelos }) {
   //console.log(modelos);
 
-  /* const linkTest =
-    "https://api.whatsapp.com/send?phone=593939481770&text=Hola.%20Quisiera%20adquirir%20el%20estuche%20de%20margaritas,%20por%20favor"; */
-
   const whatsApp = "https://api.whatsapp.com/send?phone=593939481770";
   const textbase = "text=Me%20gustaría%20adquirir%20el%20";
 
@@ -66,7 +63,7 @@ export default function Home({ modelos }) {
             data-bs-toggle="dropdown"
             aria-expanded="false"
           >
-            ¿Cuál es tu modelo de iPhone?
+            Presiona <b>aquí</b> para escoger tu modelo de iPhone
           </button>
           <ul className="dropdown-menu rounded">
             {modelos.map((modelo) => (
