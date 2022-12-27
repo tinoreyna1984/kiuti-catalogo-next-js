@@ -25,7 +25,6 @@ function MyApp({ Component, pageProps }) {
           name="description"
           content="Kiuti Cases - Los estuches más kiut para tu iPhone"
         />
-        <link rel="icon" href="/kiuti-logo.jpg" />
       </Head>
       <Header />
       <Provider store={store}>

@@ -2,10 +2,15 @@ import { useDispatch, useSelector } from "react-redux";
 import { startFilterEstuches } from "../redux/estuchesSlice";
 import { useEffect } from "react";
 import { bucket } from "./api/cosmic-api";
-import { Hearts } from "react-loader-spinner";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
-import ScrollToTop from "../components/scroll-to-top";
+import Dropdown from "../components/dropdown";
+import IndexBottom from "../components/index-bottom";
+import IndexTop from "../components/index-top";
+import IndexMid from "../components/index-mid";
+import Loading from "../components/loading";
+import NoHayEstuches from "../components/no-hay-estuches";
+import EstuchesModal from "../components/estuches-modal";
 
 export async function getServerSideProps() {
   const data = await bucket.objects
@@ -46,69 +51,13 @@ export default function Home({ modelos }) {
 
   return (
     <div className="container px-5 py-3">
-      <div className="row">
-        <p className="lead">
-          Aquí encontrarás los estuches más kiut para tu iPhone. 🥰
-        </p>
-        <p className="lead">
-          Elige tu modelo de iPhone y podrás ver todos los estuches que están
-          disponibles. 🤗
-        </p>
-      </div>
-      <div className="row py-3">
-        <div className="dropdown">
-          <button
-            id="dropdown-button"
-            className="btn btn-secondary dropdown-toggle"
-            type="button"
-            data-bs-toggle="dropdown"
-            aria-expanded="false"
-          >
-            Presiona <b>aquí</b> para escoger tu modelo de iPhone
-          </button>
-          <ul className="dropdown-menu rounded">
-            {modelos.map((modelo) => (
-              <li
-                key={modelo.slug}
-                className="dropdown-item"
-                onClick={() => handleModelo(modelo)}
-              >
-                <p>{modelo.title}</p>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div>
-      <div className="row py-3">
-        {/* {!loading && listaEstuches?.length && (
-          <p className="lead">
-            Hay {listaEstuches?.length || 0}{" "}
-            {listaEstuches?.length > 1 ? "estuches" : "estuche"} para {title}
-          </p>
-        )} */}
-        {!loading && listaEstuches?.length && (
-          <p className="lead fw-bolder text-center">
-            Estos son los estuches disponibles para {title}
-          </p>
-        )}
-      </div>
+      <IndexTop />
+      {/* <Dropdown modelos={modelos} handleModelo={handleModelo} /> */}
+      <EstuchesModal modelos={modelos} handleModelo={handleModelo} />
+      <IndexMid loading={loading} listaEstuches={listaEstuches} title={title} />
       <div className="row row-cols-1 row-cols-md-3 g-4">
         {loading ? (
-          <div className="col">
-            <div className="card h-100 border-0">
-              <div className="card-body">
-                <Hearts
-                  height="282"
-                  width="282"
-                  color="#f16c94"
-                  ariaLabel="hearts-loading"
-                  wrapperStyle={{}}
-                  wrapperClass="card-img-top h-100 w-100"
-                  visible={true}
-                />
-              </div>
-            </div>
-          </div>
+          <Loading />
         ) : (
           listaEstuches?.map((estuche) => (
             <div key={estuche.id} className="col">
@@ -136,32 +85,11 @@ export default function Home({ modelos }) {
               </div>
             </div>
           )) || (
-            <div className="col">
-              <div className="card h-100 border-0">
-                <img
-                  src="/sad-face.png"
-                  className="card-img-top h-75 w-50"
-                  alt="cara triste"
-                  loading="lazy"
-                  decoding="async"
-                />
-                <div className="card-body">
-                  <h5 className="card-title">Lo sentimos...</h5>
-                  <p className="lead">No tenemos estuches para {title}</p>
-                </div>
-              </div>
-            </div>
+            <NoHayEstuches title={title} />
           )
         )}
       </div>
-      <div className="row py-4">
-        {!loading && listaEstuches?.length && (
-          <p className="lead fw-bolder text-center">
-            *Los colores que se muestran en las imágenes son los únicos disponibles*
-          </p>
-        )}
-        <ScrollToTop />
-      </div>
+      <IndexBottom loading={loading} listaEstuches={listaEstuches} />
     </div>
   );
 }
