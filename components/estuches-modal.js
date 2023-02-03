@@ -33,6 +33,7 @@ export default function EstuchesModal({ modelos, handleModelo }) {
 
     return (
         <div className="row py-3">
+            <p>👇👇👇👇👇👇👇👇👇👇👇👇👇👇👇</p>
             <button className="btn btn-secondary w-auto" onClick={openModal}>Presiona <b>aquí</b> para escoger tu modelo de iPhone</button>
             <Modal
                 isOpen={modalIsOpen}

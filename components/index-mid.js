@@ -8,9 +8,14 @@ export default function IndexMid({ loading, listaEstuches, title }) {
           </p>
         )} */}
             {!loading && listaEstuches?.length && (
-                <p className="lead fw-bolder text-center">
-                    Estos son los estuches disponibles para {title}
-                </p>
+                <>
+                    <p className="lead fw-bolder text-center">
+                        Estos son los estuches disponibles para {title}.
+                    </p>
+                    <p className="lead fw-bolder text-center">
+                        Para cambiar de modelo, haz clic en el botoncito oscurito de arriba. ☝️
+                    </p>
+                </>
             )}
         </div>
     );
