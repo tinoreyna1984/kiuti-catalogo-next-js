@@ -12,7 +12,7 @@ import Loading from "../components/loading";
 import NoHayEstuches from "../components/no-hay-estuches";
 import EstuchesModal from "../components/estuches-modal";
 
-/* export async function getServerSideProps() {
+export async function getServerSideProps() {
   const data = await bucket.objects
     .find({
       type: "modelos", // Object Type slug
@@ -25,28 +25,34 @@ import EstuchesModal from "../components/estuches-modal";
       modelos,
     },
   };
-} */
+}
 
-export default function Home(/* { modelos } */) {
+export default function Home({ modelos }) {
+  //console.log(modelos);
 
-  /* const whatsApp = "https://api.whatsapp.com/send?phone=593939481770";
+  const whatsApp = "https://api.whatsapp.com/send?phone=593939481770";
   const textbase = "text=Me%20gustaría%20adquirir%20el%20";
 
+  // Redux
   const dispatch = useDispatch();
   const { slug, title, listaEstuches, loading } = useSelector(
     (state) => state.estuches
   );
+  //console.log(loading);
+
   useEffect(() => {
     dispatch(startFilterEstuches({ slug, title }));
   }, [slug]);
 
   const handleModelo = async ({ slug, title }) => {
+    //console.log(title);
     dispatch(startFilterEstuches({ slug, title }));
-  }; */
+  };
 
   return (
     <div className="container px-5 py-3">
-      {/* <IndexTop />
+      <IndexTop />
+      {/* <Dropdown modelos={modelos} handleModelo={handleModelo} /> */}
       <EstuchesModal modelos={modelos} handleModelo={handleModelo} />
       <IndexMid loading={loading} listaEstuches={listaEstuches} title={title} />
       <div className="row row-cols-1 row-cols-md-3 g-4">
@@ -83,8 +89,7 @@ export default function Home(/* { modelos } */) {
           )
         )}
       </div>
-      <IndexBottom loading={loading} listaEstuches={listaEstuches} /> */}
-      <h1>Kiuti Cases - Sitio en mantenimiento</h1>
+      <IndexBottom loading={loading} listaEstuches={listaEstuches} />
     </div>
   );
 }
