@@ -1,0 +1,57 @@
+{
+    "objects": [
+      {
+        "slug": "iphone-14-pro-max",
+        "title": "iPhone 14 Pro Max"
+      },
+      {
+        "slug": "iphone-14-plus",
+        "title": "iPhone 14 Plus"
+      },
+      {
+        "slug": "iphone-14-pro",
+        "title": "iPhone 14 Pro"
+      },
+      {
+        "slug": "iphone-14",
+        "title": "iPhone 14"
+      },
+      {
+        "slug": "iphone-13-pro-max",
+        "title": "iPhone 13 Pro Max"
+      },
+      {
+        "slug": "iphone-13-pro",
+        "title": "iPhone 13 Pro"
+      },
+      {
+        "slug": "iphone-13",
+        "title": "iPhone 13"
+      },
+      {
+        "slug": "iphone-12-pro-max",
+        "title": "iPhone 12 Pro Max"
+      },
+      {
+        "slug": "iphone-12-pro",
+        "title": "iPhone 12 Pro"
+      },
+      {
+        "slug": "iphone-12",
+        "title": "iPhone 12"
+      },
+      {
+        "slug": "iphone-11-pro-max",
+        "title": "iPhone 11 Pro Max"
+      },
+      {
+        "slug": "iphone-11-pro",
+        "title": "iPhone 11 Pro"
+      },
+      {
+        "slug": "iphone-11",
+        "title": "iPhone 11"
+      }
+    ],
+    "total": 13
+  }

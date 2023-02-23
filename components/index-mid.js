@@ -1,4 +1,4 @@
-export default function IndexMid({ loading, listaEstuches, title }) {
+export default function IndexMid({ /* loading, */ listaEstuches, title }) {
     return (
         <div className="row py-3">
             {/* {!loading && listaEstuches?.length && (
@@ -7,7 +7,7 @@ export default function IndexMid({ loading, listaEstuches, title }) {
             {listaEstuches?.length > 1 ? "estuches" : "estuche"} para {title}
           </p>
         )} */}
-            {!loading && listaEstuches?.length && (
+            {/* !loading && */ listaEstuches.length > 0 && (
                 <>
                     <p className="lead fw-bolder text-center">
                         Estos son los estuches disponibles para {title}.

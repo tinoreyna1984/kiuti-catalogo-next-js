@@ -1,5 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { bucket } from "../pages/api/cosmic-api";
 
 export const estuchesSlice = createSlice({
   name: "estuches",
@@ -10,36 +9,23 @@ export const estuchesSlice = createSlice({
     loading: false,
   },
   reducers: {
-    getEstuches: (state, action) => {
+    initEstuches: (state, action) => {
+      const { estuches } = action.payload;
+      state.listaEstuches = [...estuches];
+    },
+    filterEstuches: (state, action) => {
       const { slug, title, estuches } = action.payload;
-      const {
-        metadata: { estuche },
-      } = estuches[0];
       state.slug = slug;
       state.title = title;
-      state.listaEstuches = estuche;
-      //console.log(state)
-    },
-    setLoadingState: (state, action) => {
-      state.loading = action.payload;
+      state.listaEstuches = estuches.filter(estuche => estuche.tags.includes(title));
     },
   },
 });
 
-export const startFilterEstuches = ({ slug, title }) => {
+export const startFilterEstuches = ({ slug, title, estuches }) => {
   return async (dispatch) => {
-    dispatch(setLoadingState(true));
-    const data = await bucket.objects
-      .find({
-        type: "modelos",
-        slug: slug,
-      })
-      .props("metadata");
-    const estuches = await data.objects;
-
-    dispatch(getEstuches({ slug, title, estuches }));
-    dispatch(setLoadingState(false));
+    dispatch(filterEstuches({ slug, title, estuches }))
   };
 };
 
-export const { getEstuches, setLoadingState } = estuchesSlice.actions;
+export const { initEstuches, filterEstuches } = estuchesSlice.actions;
